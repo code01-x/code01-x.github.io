@@ -3,77 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TERMINAL | code X</title>
+    <title>SYSTEM_OVERRIDE | AGENT911147</title>
     <style>
         body {
-            background-color: #0a0a0a;
-            color: #00ff41; /* Classic Matrix Green */
+            margin: 0;
+            padding: 0;
+            background: #000;
+            overflow: hidden;
             font-family: 'Courier New', Courier, monospace;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            margin: 0;
-            overflow: hidden;
+        }
+
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
 
         .terminal {
-            width: 90%;
-            max-width: 600px;
-            padding: 20px;
+            position: relative;
+            z-index: 2;
+            width: 85%;
+            max-width: 500px;
+            background: rgba(0, 0, 0, 0.85);
             border: 1px solid #00ff41;
-            box-shadow: 0 0 15px #00ff41;
-            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 20px #00ff41;
+            padding: 25px;
+            color: #00ff41;
+            text-shadow: 0 0 5px #00ff41;
         }
 
+        .line { margin: 8px 0; font-size: 14px; }
+        
         .cursor {
             display: inline-block;
-            width: 10px;
-            background-color: #00ff41;
-            animation: blink 1s infinite;
+            width: 8px;
+            height: 15px;
+            background: #00ff41;
+            animation: blink 0.8s infinite;
+            vertical-align: middle;
         }
 
-        @keyframes blink {
-            0% { opacity: 0; }
-            50% { opacity: 1; }
-            100% { opacity: 0; }
-        }
+        @keyframes blink { 50% { opacity: 0; } }
 
-        a {
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 1px solid #00ff41;
             color: #00ff41;
             text-decoration: none;
-            border: 1px solid #00ff41;
-            padding: 10px 20px;
-            margin-top: 20px;
-            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
             transition: 0.3s;
         }
 
-        a:hover {
+        .btn:hover {
             background: #00ff41;
             color: #000;
+            box-shadow: 0 0 15px #00ff41;
         }
-
-        .line { margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
+    <canvas id="matrix-canvas"></canvas>
+
     <div class="terminal">
-        <div class="line">$ Initializing system...</div>
-        <div class="line">$ User: bug intercept you</div>
-        <div class="line">$ Status: <span style="color: #fff;">Online</span></div>
+        <div class="line">>> SYSTEM: SECURE_LINK_ESTABLISHED</div>
+        <div class="line">>> SOURCE: BUG INTERCEPT YOU</div>
+        <div class="line">>> LOCATION: UNDEFINED..</div>
         <div class="line">---------------------------</div>
-        <div class="line">>_ Coding & Security Research</div>
-        <div class="line">>_ Exploits & Automation</div>
+        <div class="line">DESCRIPTION: CODING // EXPLOITS // SECURITY</div>
+        <div class="line">STATUS: BYPASSING_FIREWALL...</div>
         <div class="line">---------------------------</div>
         
-        <a href="https://wa.me/2349134014994">ESTABLISH_CONNECTION</a>
+        <a href="https://wa.me/2349134014994" class="btn">CONNECT_TO_B.I.U</a>
         
-        <div class="line" style="margin-top: 20px;">$ <span class="cursor">&nbsp;</span></div>
+        <div class="line" style="margin-top: 15px;">$ <span class="cursor"></span></div>
     </div>
 
+    <script>
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const rainDrops = Array.from({ length: columns }).fill(1);
+
+        const draw = () => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+
+        setInterval(draw, 30);
+    </script>
 </body>
-  </html>
-  
+    </html>
+    
