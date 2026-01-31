@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.I.Y | Bug Intercept You</title>
+    <style>
+        :root {
+            --bg-color: #000510;
+            --main-blue: #00a2ff;
+            --text-gray: #a0c4ff;
+            --glow: 0 0 10px rgba(0, 162, 255, 0.7);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--main-blue);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Matrix Background */
+        #canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            border: 1px solid var(--main-blue);
+            padding: 20px;
+            background: rgba(0, 5, 16, 0.85); /* Semi-transparent to see numbers */
+            box-shadow: var(--glow);
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--main-blue);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: var(--glow);
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            background: rgba(0, 162, 255, 0.2);
+            padding: 5px 10px;
+            font-size: 1.2rem;
+            border-left: 5px solid var(--main-blue);
+        }
+
+        .item {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .item strong {
+            display: block;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .description {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        .cta-button {
+            display: block;
+            width: fit-content;
+            margin: 40px auto;
+            padding: 15px 30px;
+            background: transparent;
+            color: var(--main-blue);
+            border: 2px solid var(--main-blue);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+            box-shadow: var(--glow);
+        }
+
+        .cta-button:hover {
+            background: var(--main-blue);
+            color: #000;
+            cursor: pointer;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.7rem;
+            margin-top: 50px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <div class="container">
+        <header>
+            <h1>B.I.Y</h1>
+            <p class="subtitle">BUG INTERCEPT YOU // SECURE NODE</p>
+        </header>
+
+        <section>
+            <h2>[01] ACCOUNT EXPLOITS</h2>
+            <div class="item">
+                <strong>WhatsApp Bugging</strong>
+                <span class="description">Protocols for account vulnerability testing and interception.</span>
+            </div>
+            <div class="item">
+                <strong>Device Bugging</strong>
+                <span class="description">Remote interface monitoring and hardware debugging.</span>
+            </div>
+            <div class="item">
+                <strong>Telegram Bugging</strong>
+                <span class="description">API exploitation for Telegram diagnostic reports.</span>
+            </div>
+            <div class="item">
+                <strong>Facebook Ban</strong>
+                <span class="description">Targeted restriction services for specific profiles.</span>
+            </div>
+            <div class="item">
+                <strong>TikTok Ban</strong>
+                <span class="description">Protocol-based account termination services.</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>[02] RECOVERY SERVICES</h2>
+            <div class="item">
+                <strong>Social Media Recovery</strong>
+                <span class="description">Comprehensive restoration of lost digital identities.</span>
+            </div>
+            <div class="item">
+                <strong>Facebook Unban/Recovery</strong>
+                <span class="description">Bypassing security blocks to restore Meta accounts.</span>
+            </div>
+            <div class="item) ">
+                <strong>WhatsApp Unban</strong>
+                <span class="description">Lifting permanent or temporary number restrictions.</span>
+            </div>
+            <div class="item">
+                <strong>Telegram Unban</strong>
+                <span class="description">Technical bypasses for global Telegram account bans.</span>
+            </div>
+            <div class="item">
+                <strong>TikTok Recovery</strong>
+                <span class="description">Retrieving access to compromised TikTok profiles.</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>[03] BOT DEVELOPMENT</h2>
+            <div class="item">
+                <strong>Telegram Bot</strong>
+                <span class="description">Custom API-driven automation for Telegram.</span>
+            </div>
+            <div class="item">
+                <strong>WhatsApp Bot</strong>
+                <span class="description">Automated scripts for message handling and logic.</span>
+            </div>
+            <div class="item">
+                <strong>Group Bot</strong>
+                <span class="description">Moderation and auto-engagement tools for large groups.</span>
+            </div>
+            <div class="item">
+                <strong>Bug Bot</strong>
+                <span class="description">Automated vulnerability scanning and reporting scripts.</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>[04] TRACKING & TOOLS</h2>
+            <div class="item">
+                <strong>Lost Device Location</strong>
+                <span class="description">GPS and IP triangulation for missing hardware.</span>
+            </div>
+            <div class="item">
+                <strong>Live View Tracking</strong>
+                <span class="description">Real-time visual monitoring streams.</span>
+            </div>
+            <div class="item">
+                <strong>Mod Applications</strong>
+                <span class="description">Modified premium software available at cheaper rates.</span>
+            </div>
+        </section>
+
+        <a href="https://wa.me/2349134014994" class="cta-button">Direct Contact: WhatsApp</a>
+
+        <div class="footer">
+            &copy; 2026 B.I.Y - BUG INTERCEPT YOU
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const digits = "01"; // Binary style for "bug intercept" feel
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 5, 16, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00a2ff'; // Matrix color matches your blue theme
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = digits.charAt(Math.floor(Math.random() * digits.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+              </html>
+              
